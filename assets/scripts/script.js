@@ -14,6 +14,7 @@ function fetchWeatherForecast(cityName) {
         .then(data => {
             const dailyForecast = getDailyForecast(data.list);
             displayWeatherForecast(dailyForecast);
+            addToHistory(cityName)
         })
         .catch(error => console.error('Error fetching weather data:', error));
 }
@@ -109,3 +110,16 @@ document.getElementById('search-form').addEventListener('submit', event => {
     }
     cityInput.value = '';
 });
+
+funct
+
+function addToHistory(cityName) {
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    searchHistory.push(cityName)
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+
+    const searchHistoryContainer = document.getElementById('search-history')
+    const item = document.createElement('li')
+    item.textContent = cityName;
+    searchHistoryContainer.appendChild(item)
+}
