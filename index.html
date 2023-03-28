@@ -18,7 +18,22 @@
         <input type="text" id="city-name" required>
         <button type="submit">Search</button>
     </form>
+    <div id="wrapper">
+        <div id="weather-info">
+            <div class="header-info">
+                <h2>
+                  <span id="city-name"></span>
+                  <span id="current-date"></span>
+                </h2>
+                <img id="weather-icon" src="" alt="Weather icon" style="display: none;">
+            </div>
+            <p id="temperature"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+        </div>
+    </div>
     <div id="forecast-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
     <script src="./assets/scripts/script.js"></script>
 </body>
 </html>

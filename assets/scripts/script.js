@@ -79,3 +79,33 @@ function getDailyForecast(dataList) {
 
     return dailyData;
 }
+
+function displayWeather(data) {
+    document.getElementById('city-name').textContent = data.name;
+    document.getElementById('current-date').textContent = dayjs().format('MMMM D, YYYY');
+    document.getElementById('weather-icon').src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+    document.getElementById('weather-icon').style.display = 'inline';
+    document.getElementById('temperature').textContent = `Temperature: ${data.main.temp}°F`;
+    document.getElementById('wind').textContent = `Wind Speed: ${data.wind.speed} MPH`;
+    document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
+}
+
+function fetchWeather(city) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`)
+        .then(response => response.json())
+        .then(data => {
+            displayWeather(data);
+        })
+        .catch(error => console.error('Error fetching weather data:', error));
+}
+
+document.getElementById('search-form').addEventListener('submit', event => {            
+     event.preventDefault();
+    const cityInput = document.getElementById('city-name');
+    const cityName = cityInput.value.trim();
+    
+    if (cityName) {
+        fetchWeather(cityName);
+    }
+    cityInput.value = '';
+});
