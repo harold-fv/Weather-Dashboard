@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #search-form {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #search-label {
+            margin-right: 10px;
+        }
+
+        #wrapper {
+            /* background-color: #f3f4f7; */
+            padding: 20px;
+            border-radius: 10px;
+            border-style: groove;
+            position: absolute;
+            width:600px;
+            height:150px;
+            top:50px;
+            background-color: rgb(237, 237, 243);
+            
+        
+        }
+        
+        #weather-info {
+            /* display: flex;
+            flex-direction: column;
+            align-items: center; */
+            top:100px;
+            width: 1000px;
+
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            width:1200px ;
+           top:10px;
+         
+        }
+    </style>
+</head>
+<body>
+
+    <form id="search-form">
+        <label id="search-label" for="city-input">Search for a City</label>
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button type="submit">Search</button>
+    </form>
+    <div id="wrapper">
+        <div id="weather-info">
+            <div class="header-info">
+                <h2>
+                  <span id="city-name"></span>
+                  <span id="current-date"></span>
+                </h2>
+                <img id="weather-icon" src="" alt="Weather icon" style="display: none;">
+            </div>
+            <p id="temperature"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+    <script>
+        const apiKey = '90ace26e027188c843006052e3d2de35';
+
+        function displayWeather(data) {
+            document.getElementById('city-name').textContent = data.name;
+            document.getElementById('current-date').textContent = dayjs().format('MMMM D, YYYY');
+            document.getElementById('weather-icon').src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+            document.getElementById('weather-icon').style.display = 'inline';
+            document.getElementById('temperature').textContent = `Temperature: ${data.main.temp}°F`;
+            document.getElementById('wind').textContent = `Wind Speed: ${data.wind.speed} MPH`;
+            document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
+        }
+
+        function fetchWeather(city) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`)
+                .then(response => response.json())
+                .then(data => {
+                    displayWeather(data);
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+        }
+
+        document.getElementById('search-form').addEventListener('submit', event => {
+            event.preventDefault();
+            const cityInput = document.getElementById('city-input');
+            const cityName = cityInput.value.trim();
+            
+            if (cityName) {
+                fetchWeather(cityName);
+            }
+            cityInput.value = '';
+        });
+    </script>
+
+</body>
+</html>
+
+
