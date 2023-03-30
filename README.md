@@ -30,7 +30,7 @@ Open the index.html file in your web browser to run the application.
  ![image](https://user-images.githubusercontent.com/120603153/228978542-867ab7d9-7b4d-460c-b8cb-5999782ab4a1.png)
 
 
-2. The user has the option to search ar city by typing it on the search box. Please see below.
+2. The user has the option to search for a city by typing it on the search box. Please see below.
 
 ![image](https://user-images.githubusercontent.com/120603153/228978757-d829fc01-2c18-4661-9643-cf51758a59be.png)
 
@@ -48,7 +48,7 @@ Open the index.html file in your web browser to run the application.
 
 ![image](https://user-images.githubusercontent.com/120603153/228981423-efb4925e-1fe1-43fa-b1b8-39d7a93dd19f.png)
 
-6. The system will all save all the search button on the recent search area and anytime the user clicls the button on the searhed city, it will then display the current and future conditions for that city. 
+6. The system will save all the search button on the recent search area and anytime the user clicls the button on the searhed city, it will then display the current and future conditions for that city. 
 
 ![image](https://user-images.githubusercontent.com/120603153/228981771-8a46dd38-711a-49f3-8960-343c722c2c58.png)
 
