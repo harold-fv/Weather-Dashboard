@@ -1,6 +1,6 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-This is a simple Work Weather Dashbaord application that allows a user to check the current weather and the 5 day forecast. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
+This is a simple Weather Dashboard application that allows a user to check the current weather and the 5-day forecast. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
 # User Story
 
@@ -15,7 +15,7 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 
 # Installation
 
-To install and use the Work Day Scheduler application, please follow these steps:
+To install and use the Weather Dashboard application, please follow these steps:
 
 You can clone this repository to your local machine using Git:
 
