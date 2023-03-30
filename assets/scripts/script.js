@@ -130,4 +130,14 @@ function appendCity(newCity) {
 }
 
 
+//This function updates the list of city
+let recentSearchResultsEl = document.getElementById("recent-search-container");
+function modifyCitylist() {
+    let citiesHtml = "";
+    for (let i = 0; i < cities.length; i++) {
+        citiesHtml += '<button class="btn">' + cities[i].name + '</button>';
+    }
+    recentSearchResultsEl.innerHTML = citiesHtml;
+    console.log(cities[0]);
+}
 
