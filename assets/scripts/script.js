@@ -52,6 +52,7 @@ function presentWeather(currentUrl) {
         });
 }
 
+//This will get the projected 5 day weather forecast
 let forecastContainerEl = $("#forecast-box");
 function projectedWeather(forecastUrl) {
     let forecastContainer = document.getElementById("forecast-box");
