@@ -149,3 +149,37 @@ recentSearchResults.addEventListener("click", function(event) {
         retrieveCity(recentCityName);
     }
 });
+
+// This function is to seearch the City
+function citySearch() {
+    let citySearchForm = document.getElementById("city-search-form");
+    citySearchForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let newCityName = document.getElementById("city-name").value;
+        let newCity = {
+            name: newCityName
+        };
+        appendCity(newCity);
+        retrieveCity(newCityName);
+    });
+}
+window.addEventListener('load', function() {
+    console.log("init");
+    citySearch();
+    loadCities();
+    let cities = JSON.parse(localStorage.getItem("cities"));
+    if (cities) {
+        let lastCity = cities[0].name;  
+        console.log("testing: " + lastCity)
+        retrieveCity(lastCity); 
+        modifyCitylist();
+
+    } else {
+        document.getElementById("city-details").style.display = "none"; 
+        document.getElementById("city-forecast").style.display = "none";
+    }
+});
+
+
+
+
