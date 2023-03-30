@@ -1,7 +1,7 @@
 let APIKey = "90ace26e027188c843006052e3d2de35";
 let cities = [];
 
-//function get the cityname
+//This function will retrieve the the cityname
 function retrieveCity(cityName2) {
   
     document.getElementById("city-details").style.display = "block";
@@ -29,3 +29,26 @@ function retrieveCity(cityName2) {
         projectedWeather(forecastURL);
     });
 }
+
+function presentWeather(currentUrl) {
+    fetch(currentUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let now = dayjs().format('MMMM D, YYYY');
+            let cityDetailsHeader = document.getElementById("city-details-header");
+            cityDetailsHeader.textContent = data.name + ' (' + now + ')';
+            
+            document.getElementById("current-city-temp").textContent = "Temperature: " + data.main.temp + "\u00B0F";
+            document.getElementById("current-city-wind").textContent = "Wind Speed: " + data.wind.speed + " MPH";
+            document.getElementById("current-city-humid").textContent = "Humidity: " + data.main.humidity + "%";
+            
+            let iconURL = 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+
+            let iconImage = document.createElement("img");
+            iconImage.setAttribute("src", iconURL);
+            cityDetailsHeader.appendChild(iconImage);
+        });
+}
+
