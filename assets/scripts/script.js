@@ -52,3 +52,66 @@ function presentWeather(currentUrl) {
         });
 }
 
+let forecastContainerEl = $("#forecast-box");
+function projectedWeather(forecastUrl) {
+    let forecastContainer = document.getElementById("forecast-box");
+    forecastContainer.innerHTML = "";
+    fetch(forecastUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var dataList = data.list;
+
+            for (let i = 0; i < dataList.length; i++) {
+                let date = dataList[i].dt_txt.split(" ")[0];
+                let time = dataList[i].dt_txt.split(" ")[1];
+
+                let dateFormatted = dayjs(date).format('MMMM D, YYYY');
+                let today = dayjs().format('MMMM D, YYYY');
+
+                if (time === '12:00:00' && dateFormatted !== today) {
+                    let dayForecastEl = document.createElement('section');
+                    dayForecastEl.setAttribute('id', 'day-' + dateFormatted);
+                    dayForecastEl.setAttribute('class', 'col-sm bg-primary text-white m-1');
+
+                    let dateForecastEl = document.createElement('h1');
+                    dateForecastEl.setAttribute('id', 'day-date-' + dateFormatted);
+                    dateForecastEl.setAttribute('style', 'color: white;');
+                    dateForecastEl.textContent = dateFormatted;
+
+                    let iconForecastEl = document.createElement('h1');
+                    let iconURL = 'https://openweathermap.org/img/w/' + dataList[i].weather[0].icon + '.png';
+                    let iconImage = document.createElement("img");
+                    iconImage.setAttribute("src", iconURL);
+                    iconForecastEl.setAttribute('id', 'day-icon-' + dateFormatted);
+                    iconForecastEl.appendChild(iconImage);
+
+                    let tempForecastEl = document.createElement('p');
+                    tempForecastEl.setAttribute('id', 'day-temp-' + dateFormatted);
+                    tempForecastEl.textContent = "Temperature: " + dataList[i].main.temp + "\u00B0F";
+                    tempForecastEl.setAttribute('style', 'color: white;');
+
+                    let windForecastEl = document.createElement('p');
+                    windForecastEl.setAttribute('id', 'day-wind-' + dateFormatted);
+                    windForecastEl.textContent = "Wind Speed: " + dataList[i].wind.speed + " MPH";
+                    windForecastEl.setAttribute('style', 'color: white;');
+
+                   let humForecastEl = document.createElement('p');
+                    humForecastEl.setAttribute('id', 'day-hum-' + dateFormatted);
+                    humForecastEl.textContent = "Humidity: " + dataList[i].main.humidity + "%";
+                    humForecastEl.setAttribute('style', 'color: white;');
+
+                    dayForecastEl.appendChild(dateForecastEl);
+                    dayForecastEl.appendChild(iconForecastEl);
+                    dayForecastEl.appendChild(tempForecastEl);
+                    dayForecastEl.appendChild(windForecastEl);
+                    dayForecastEl.appendChild(humForecastEl);
+
+                    forecastContainer.appendChild(dayForecastEl);
+                }
+            }
+        });
+}
+
+
