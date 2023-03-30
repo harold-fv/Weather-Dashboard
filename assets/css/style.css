@@ -81,5 +81,58 @@ body {
     width: calc(20% - 4px);
     border-radius: 5px;
   }
+
+  
+  .text-white{
+    width:200px;
+    height:250px;
+    background-color: #1c7cd9;
+  
+
+  }
+
+
+#forecast-box {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    color:blue;
+    margin-bottom: 10 px;;
+  }
+  
+  #city-forecast {
+    margin-top: 20px;
+   
+  }
+
+#recent-search-container{
+   padding-inline-start: 0;
+   
+}  
+.btn{
+    display:block;
+    width: 300px;
+    font-size:20px;
+    text-align: center;
+    margin: 2px;
+
+   
+}
+
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+    }
+  
+    aside {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+
    
     
