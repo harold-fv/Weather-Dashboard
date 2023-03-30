@@ -1,40 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Day Weather Forecast</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <style>
-   
-   
-    </style>
-</head>
-<body>
-    <h1>Search for a City</h1>
-    <form id="search-form">
-        <label for="city-name">City:</label>
-        <input type="text" id="city-name" required>
-        <button type="submit">Search</button>
-    </form>
-    <div id="search-history"></div>
-    <div id="wrapper">
-        <div id="weather-info">
-            <div class="header-info">
-                <h2>
-                  <span id="city-name"></span>
-                  <span id="current-date"></span>
-                </h2>
-                <img id="weather-icon" src="" alt="Weather icon" style="display: none;">
-            </div>
-            <p id="temperature"></p>
-            <p id="wind"></p>
-            <p id="humidity"></p>
-        </div>
-    </div>
-    <div id="forecast-container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    <header>
+        <h1>Weather Dashboard</h1> 
+    </header>
+    <main class="main-container">
+        <aside id="city-search">
+            <h2>Search for a City:</h2>
+            <form id="city-search-form">
+                <input name="city-name" id="city-name" type="text" class="city-input"/>
+                <button type="submit" id="city-name-btn">Search</button>
+            </form>
+            <hr>
+            <section id="recent-search-display">
+                <h2 class="recent-search-label">Recent Searches: <span id="recent-search-results"></span></h2>
+                <ul id="recent-search-container"></ul>
+            </section>
+        </aside>
+
+        <article>
+            <section id="city-details">
+                <h2 id="city-details-header"></h2>
+                <div id="cities-container"></div>
+                <p id="current-city-temp"></p>
+                <p id="current-city-wind"></p>
+                <p id="current-city-humid"></p>
+            </section>
+            <section id="city-forecast">
+                <h2>5-Day Forecast: </h2>
+                <div id="forecast-box"></div>
+            </section>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="./assets/scripts/script.js"></script>
-</body>
+  </body>
 </html>
