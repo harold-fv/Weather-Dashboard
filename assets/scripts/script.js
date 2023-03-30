@@ -180,6 +180,20 @@ window.addEventListener('load', function() {
     }
 });
 
-
+// to store the city data in LocalStorage
+var storeCity = function() {
+    localStorage.setItem( "cities", JSON.stringify(cities) );
+ }
+ 
+ //gets the city data from Local Storage
+ var loadCities = function() {
+     cities = JSON.parse(localStorage.getItem("cities"));
+     if (!cities){
+         cities = [];   
+     }
+     console.log("load cities", cities);
+     modifyCitylist();
+ }
+ 
 
 
