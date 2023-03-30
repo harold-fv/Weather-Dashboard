@@ -141,3 +141,11 @@ function modifyCitylist() {
     console.log(cities[0]);
 }
 
+// get the text from searched city buttons 
+const recentSearchResults = document.getElementById("recent-search-results");
+recentSearchResults.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        let recentCityName = event.target.textContent;
+        retrieveCity(recentCityName);
+    }
+});
