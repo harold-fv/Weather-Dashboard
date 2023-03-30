@@ -49,3 +49,37 @@ body {
     background-color: #1c7cd9;
   }
   
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  #city-details {
+
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-style: groove;
+   
+  }
+  
+  #city-forecast {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: space-between;
+    overflow-x: auto;
+   
+  }
+  
+  .forecast-box {
+    padding: 20px;
+    width: calc(20% - 4px);
+    border-radius: 5px;
+  }
+   
+    
