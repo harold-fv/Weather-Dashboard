@@ -1,83 +1,51 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    position: relative;
-} */
-
 body {
     font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
     margin: 0;
     padding: 0;
-    position: relative;
+  }
+  
+  header {
+    background-color: #1e90ff;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .main-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-#search-form {
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-}
-
-#search-label {
-    margin-right: 10px;
-}
-
-#wrapper {
-    /* background-color: #f3f4f7; */
+    margin: 20px;
+  }
+  
+  aside {
+    flex: 0 0 300px;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    border-style: groove;
-    position: absolute;
-    width:600px;
-    height:150px;
-    top:50px;
-    background-color: rgb(237, 237, 243);
-    
-
-}
-
-#weather-info {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    top:100px;
-    width: 1000px;
-
-}
-
-.header-info {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    width:1200px ;
-   top:10px;
- 
-}
-#search-form {
-    position: absolute;
-    top: 40px;
-    left: 10px;
-}
-
-#forecast-container {
-   
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
-    width: 100%;
-}
-
-.forecast-card {
-    display: inline-block;
-    background-color: #f1f1f1;
-    padding: 15px;
-    margin: 5px;
     border-radius: 5px;
-}
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+  
+  article {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #1c7cd9;
+  }
+  
