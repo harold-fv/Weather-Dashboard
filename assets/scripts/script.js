@@ -150,7 +150,7 @@ recentSearchResults.addEventListener("click", function(event) {
     }
 });
 
-// This function is to seearch the City
+// This function is to search the City
 function citySearch() {
     let citySearchForm = document.getElementById("city-search-form");
     citySearchForm.addEventListener("submit", function(event) {
