@@ -13,11 +13,6 @@ body {
     color: white;
   }
   
-  .main-container {
-    display: flex;
-    margin: 20px;
-  }
-  
   aside {
     flex: 0 0 300px;
     background-color: white;
@@ -43,18 +38,38 @@ body {
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    text-transform: capitalize;
   }
   
   button:hover {
     background-color: #1c7cd9;
   }
   
-  
   hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 20px 0;
   }
+  
+  #city-forecast {
+    margin-top: 20px;
+   
+  }
+
+  #forecast-box {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    color:blue;
+    margin-bottom: 10 px;;
+  }
+
+
+#recent-search-container{
+   padding-inline-start: 0;
+   
+} 
   
   #city-details {
 
@@ -63,7 +78,6 @@ body {
     border-radius: 5px;
     margin-bottom: 20px;
     border-style: groove;
-   
   }
   
   #city-forecast {
@@ -73,52 +87,33 @@ body {
     gap: 20px;
     justify-content: space-between;
     overflow-x: auto;
-   
   }
-  
+
+  .btn{
+    display:block;
+    width: 300px;
+    font-size:20px;
+    text-align: center;
+    margin: 2px;
+}
+
   .forecast-box {
     padding: 20px;
     width: calc(20% - 4px);
     border-radius: 5px;
   }
 
+  .main-container {
+    display: flex;
+    margin: 20px;
+  }
   
   .text-white{
     width:200px;
     height:250px;
     background-color: #1c7cd9;
-  
-
   }
 
-
-#forecast-box {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    overflow-x: auto;
-    color:blue;
-    margin-bottom: 10 px;;
-  }
-  
-  #city-forecast {
-    margin-top: 20px;
-   
-  }
-
-#recent-search-container{
-   padding-inline-start: 0;
-   
-}  
-.btn{
-    display:block;
-    width: 300px;
-    font-size:20px;
-    text-align: center;
-    margin: 2px;
-
-   
-}
 
   @media (max-width: 768px) {
     .main-container {
