@@ -29,7 +29,7 @@ function retrieveCity(cityName2) {
         projectedWeather(forecastURL);
     });
 }
-
+// This function will retrieve the currentweather
 function presentWeather(currentUrl) {
     fetch(currentUrl)
         .then(function (response) {
@@ -114,5 +114,20 @@ function projectedWeather(forecastUrl) {
             }
         });
 }
+
+// This function will push the city that was most recently searched for at the top 
+// of the recent search list
+function appendCity(newCity) {
+    const previousCities = [...cities];
+    cities.length = 0; 
+    cities.push(newCity); 
+
+    for (let i = 0; i < previousCities.length; i++) {
+        cities.push(previousCities[i]);
+    }
+    modifyCitylist();
+    storeCity();
+}
+
 
 
