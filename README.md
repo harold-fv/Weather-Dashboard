@@ -23,7 +23,7 @@ git clone https://github.com/harold-fv/Weather-Dashboard
 
 Open the index.html file in your web browser to run the application.
 
-# Usage.
+# Usage
 
  1. Below is the total picture of the Weather Dashboard.
 
